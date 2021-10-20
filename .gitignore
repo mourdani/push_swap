@@ -52,3 +52,7 @@ Mkfile.old
 dkms.conf
 pyviz.py
 eval/
+libft
+libft/
+dirs/
+src/
