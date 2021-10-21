@@ -1,59 +1,73 @@
 #include "header.h"
 #include <stdio.h>
 
-int 	test(int argc, int* a, int *b)
+int 	test(t_stack a,t_stack b)
 {
 	int i;
 
-	printf("=============|original stack 'a'|=================\n");
-	i = 0;
-	while (i < argc)
+	printf("=============|original stack 'a'|=============\n");
+	i = a.max_i;
+	printf("a.max_i = %d 	|\n", a.max_i);
+	while ( i >= 0)
 	{
-		printf("a[%d] = %d 	|", i, a[i]);
-		printf("b[%d] = %d\n", i, b[i]);
-		i++;
+		printf("a[%d] = %d 	|", i, a.stack[i]);
+		printf("b[%d] = %d\n", i, b.stack[i]);
+		i--;
 	}
-
-	printf("\n\n=============|swap|===============\n");
+/*
+	printf("=============|swap 'a'|=============\n");
 	swap(a);
-	i = 0;
-	while (i < argc)
+	i = a.max_i;
+	while ( i >= 0)
 	{
-		printf("a[%d] = %d 	|", i, a[i]);
-		printf("b[%d] = %d\n", i, b[i]);
-		i++;
+		printf("a[%d] = %d 	|", i, a.stack[i]);
+		printf("b[%d] = %d\n", i, b.stack[i]);
+		i--;
 	}
 
 	printf("\n\n=============|rotate|=============\n");
 	rotate(a);
 	rotate(a);
-	i = 0;
-	while (i < argc)
+	i = a.max_i;
+	while ( i >= 0)
 	{
-		printf("a[%d] = %d 	|", i, a[i]);
-		printf("b[%d] = %d\n", i, b[i]);
-		i++;
+		printf("a[%d] = %d 	|", i, a.stack[i]);
+		printf("b[%d] = %d\n", i, b.stack[i]);
+		i--;
 	}
 	
 	printf("\n\n=============|rrotate|=============\n");
 	rrotate(a);
 	rrotate(a);
 	rrotate(a);
-	i = 0;
-	while (i < argc)
+	i = a.max_i;
+	while ( i >= 0)
 	{
-		printf("a[%d] = %d 	|", i, a[i]);
-		printf("b[%d] = %d\n", i, b[i]);
-		i++;
+		printf("a[%d] = %d 	|", i, a.stack[i]);
+		printf("b[%d] = %d\n", i, b.stack[i]);
+		i--;
 	}
 	
-/*	printf("\n\n=============|stack 'a' after push|===============\n");
+	printf("\n\n=============|push|=============\n");
 	push(a, b);
-	i = 0;
+	a.max_i -= 1;
+	b.max_i += 1;
+	i = a.max_i;
+	while (i >= 0)
 	{
-		printf("a[%d] = %d 	|", i, a[i]);
-		printf("b[%d] = %d\n", i, b[i]);
-		i++;
+		printf("a[%d] = %d 	|", i, a.stack[i]);
+		printf("b[%d] = %d\n", i, b.stack[i]);
+		i--;
+	}
+	printf("\n\n=============|push|=============\n");
+	push(a, b);
+	a.max_i -= 1;
+	i = a.max_i;
+	while (i >= 0)
+	{
+		printf("a[%d] = %d 	|", i, a.stack[i]);
+		printf("b[%d] = %d\n", i, b.stack[i]);
+		i--;
 	}*/
 	return (0);
 }

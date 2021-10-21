@@ -1,35 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/21 15:41:09 by mourdani          #+#    #+#             */
+/*   Updated: 2021/10/21 15:41:28 by mourdani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-void	rrotate(int *stack)
+void	rotate(t_stack s)
 {
 	int	i;
-	int	max_i;
 	int	temp;
 
-	max_i = stack_max_i(stack);
-	i = max_i;
-	temp = stack[max_i];
+	i = s.max_i;
+	temp = s.stack[s.max_i];
 	while (i > 0)
 	{
-		stack[i] = stack[i - 1];
+		s.stack[i] = s.stack[i - 1];
 		i--;
 	}
-	stack[0] = temp;
+	s.stack[0] = temp;
 }
 
-void	rotate(int *stack)
+void	rrotate(t_stack s)
 {
 	int	i;
-	int	max_i;
 	int	temp;
 
-	max_i = stack_max_i(stack);
 	i = 0;
-	temp = stack[0];
-	while (i < max_i)
+	temp = s.stack[0];
+	while (i < s.max_i)
 	{
-		stack[i] = stack[i + 1];
+		s.stack[i] = s.stack[i + 1];
 		i++;
 	}
-	stack[max_i] = temp;
+	s.stack[s.max_i] = temp;
 }

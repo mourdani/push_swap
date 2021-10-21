@@ -1,37 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/20 06:37:46 by mourdani          #+#    #+#             */
+/*   Updated: 2021/10/20 06:49:28 by mourdani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-int	*init_a(int argc, int *a, char **argv)
+int	*init_a(t_stack a, char **argv)
 {
 	int i;
+	int j;
 
 	i = 0;
-	while (argc > 1)
-	 	a[i++] = ft_atoi(argv[argc-- - 1]);
- 	a[i] = '\0';
+	j = a.max_i + 1;
+	while (j > 0)
+	 	a.stack[i++] = ft_atoi(argv[j--]);
+ 	a.max_i = --i;
 }
 
-int	stack_max_i(int *stack)
-{
-	int	i;
-
-	i = 0;
-	while (stack[i])
-		i++;
-	return (--i);
-}
-
-void	ft_bzero(int *s, int n)
-{
-	int	i;
-
-	if (!n)
-		return ;
-	i = 0;
-	while (i < n)
-		s[i++] = '\0';
-}
-
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int		i;
 	int		num;

@@ -1,13 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/21 15:41:17 by mourdani          #+#    #+#             */
+/*   Updated: 2021/10/21 15:41:25 by mourdani         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-void	push(int *a, int *b)
+void	push(t_stack a, t_stack b)
 {
-	int max_a;
-	int max_b;
-
-	max_a = stack_max_i(a);
-	max_b = stack_max_i(b);
-
-	b[max_b + 1] = a[max_a];
-	b[max_b + 2] = '\0';
+	b.stack[b.max_i + 1] = a.stack[a.max_i];
 }
