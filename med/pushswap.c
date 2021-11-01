@@ -6,7 +6,7 @@
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 07:55:42 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/01 02:44:19 by mourdani         ###   ########.fr       */
+/*   Updated: 2021/11/01 05:34:39 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	push_swap(t_stack a, t_stack b)
 	int	i;
 	int	j;
 	int	max_i;
+	int	n_a;
+	int	n_b;
 
 
 	max_i = a.max_i;
@@ -42,8 +44,6 @@ void	push_swap(t_stack a, t_stack b)
 	push(&a, &b);
 	i = 0;	
 	j = 0;
-	printf("b.maxi_i = %d\n", b.max_i);
-	print_stacks(a, b);
 	while (j < 5)
 	{
 		i = 0;	
@@ -51,16 +51,28 @@ void	push_swap(t_stack a, t_stack b)
 		{
 			hold_first = scan_from_top(a, chunk, j);
 			hold_second = scan_from_bottom(a, chunk, j);
-			printf("hold_first = %d\nhold_second = %d\n", hold_first, hold_second);
-			printf("a.max_i = %d\n", a.max_i);
-		
-			rotate_ntimes(a, find_closest(a, hold_first, hold_second));
-			rotate_ntimes(b, find_nrotates(find_pos(a, b, a.max_i), b.max_i));
+			closest = hold_first;
+			if (find_nrotates(hold_first, a.max_i) > find_nrotates(hold_second, a.max_i))
+				closest = hold_second;
+			n_a = find_nrotates(closest, a.max_i);
+			n_b = find_nrotates(find_pos(a, b, closest), b.max_i);
+			arrange_stacks(a, b, n_a, n_b);			
 			push(&a, &b);
 			i++;
 		}
-		print_stacks(a, b);
-		printf("b.maxi_i = %d\n", b.max_i);
 		j++;
 	}
+	b.max_i -= 2;
+	a.max_i += 2;
+	i = 0;
+	while (b.stack[i] != sorted[b.max_i])
+		i++;
+	rotate_ntimes(b, find_nrotates(i, b.max_i));
+	i = b.max_i;
+	while ( i >= 0)
+	{
+		push(&b, &a);
+		i--;
+	}
+	print_stacks(a, b);
 }

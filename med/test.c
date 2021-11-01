@@ -9,7 +9,6 @@ void	print_stacks(t_stack a, t_stack b)
 	i = b.max_i;
 	if (a.max_i > b.max_i)
 		i = a.max_i;
-
 	while ( i >= 0)
 	{
 
@@ -44,11 +43,11 @@ int 	test(t_stack a, t_stack b)
 	i = 0;
 	j = a.max_i;
 	n = 3;
-	printf("=============|original stack 'a'|=============\n");
-	printf("a.max_i = %d 	|\n", a.max_i);
-	print_stacks(a, b);
+//	printf("=============|original stack 'a'|=============\n");
+//	printf("a.max_i = %d 	|\n", a.max_i);
+//	print_stacks(a, b);
 
-	printf("=============|	sorted	|=============\n");
+//	printf("=============|	sorted	|=============\n");
 
 //	print_stack(chunk[0], 18);
 //	i = scan_from_top(a, chunk);

@@ -39,3 +39,39 @@ int	find_pos(t_stack a, t_stack b, int closest)
 	return(i);
 }
 
+void	rotatea_b(t_stack a, t_stack b, int n_a, int n_b)
+{
+	while (n_a > 0 && n_b > 0)
+	{
+		rr(a, b);
+		n_a--;
+		n_b--;
+	}
+	rotate_ntimes(a, n_a);
+	rotate_ntimes(b, n_b);
+}
+
+void	rrotatea_b(t_stack a, t_stack b, int n_a, int n_b)
+{
+	while (n_a < -1 && n_b < -1)
+	{
+		rrr(a, b);
+		n_a++;
+		n_b++;
+	}
+	rotate_ntimes(a, n_a);
+	rotate_ntimes(b, n_b);
+}
+
+void	arrange_stacks(t_stack a, t_stack b, int n_a, int n_b)
+{
+	if (n_a > 0 && n_b > 0)
+		rotatea_b(a, b, n_a, n_b);
+	else if (n_a < 0 && n_b < 0)
+		rrotatea_b(a, b, n_a, n_b);
+	else
+	{
+		rotate_ntimes(a, n_a);
+		rotate_ntimes(b, n_b);
+	}
+}

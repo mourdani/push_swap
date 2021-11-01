@@ -16,7 +16,7 @@ int	check_elig(t_stack b, int i)
 		return (0);
 }
 
-void	rotate_a_b(t_stack a, t_stack b, int closest, int smallest)
+void	rotate__a_b(t_stack a, t_stack b, int closest, int smallest)
 {
 	while (closest-- > 0 || smallest-- > 0)
 	{
@@ -36,7 +36,7 @@ void	rotate_a_b(t_stack a, t_stack b, int closest, int smallest)
 	
 }
 
-void	rrotate_a_b(t_stack a, t_stack b, int closest, int smallest)
+void	rrotate__a_b(t_stack a, t_stack b, int closest, int smallest)
 {
 	while (closest++ < 0 || smallest++ < 0)
 	{
@@ -55,8 +55,8 @@ void	rrotate_a_b(t_stack a, t_stack b, int closest, int smallest)
 	}
 	
 }
-
-void	arrange_a_b(t_stack a, t_stack b, int closest)
+/*
+void	arrangea_b(t_stack a, t_stack b, int closest)
 {
 	int *sorted;
 	int smallest;
@@ -77,4 +77,4 @@ void	arrange_a_b(t_stack a, t_stack b, int closest)
 		rrotate_a_b(a, b, closest, smallest);
 	rotate_ntimes(a, closest);
 	rotate_ntimes(b, smallest);
-}
+}*/
