@@ -6,34 +6,22 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 00:59:50 by mourdani          #+#    #+#             */
-/*   Updated: 2021/10/20 06:11:02 by mourdani         ###   ########.fr       */
+/*   Updated: 2021/10/28 00:57:10 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 #include <stdlib.h>
 
-int	*init_a(int argc, int *a, char **argv)
-{
-	int i;
-
-	i = 0;
-	while (argc > 1)
-	 	a[i++] = ft_atoi(argv[argc-- - 1]);
- 	a[i] = '\0';
-}
-
 int main(int argc, char **argv)
 {
-	int a[argc];
-	int b[argc];
-	int j;
-
-	j = argc;
+	t_stack a = {(int*)malloc(sizeof(int) * argc - 1), argc - 2};
+	t_stack b = {(int*)malloc(sizeof(int) * argc - 1), -1};
 	if (argc == 1)
 		return (0);
-	init_a(argc, a, argv);
-	test(j, a, b);
+	init_a(a, argv);
+	
+	test(a, b);
 
 	return (0);
 }
