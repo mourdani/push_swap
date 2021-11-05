@@ -6,7 +6,7 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 06:37:46 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/03 04:26:55 by mourdani         ###   ########.fr       */
+/*   Updated: 2021/11/05 03:14:33 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	*init_sorted(t_stack a)
 	
 	if (!a.stack)
 		return (0);	
-	if (!(temp.stack = (int*)malloc(sizeof(int) * a.max_i)))
+	if (!(temp.stack = (int*)malloc(sizeof(int) * (a.max_i + 1))))
 		return (0);
 	temp.max_i = a.max_i;
 	i = 0;

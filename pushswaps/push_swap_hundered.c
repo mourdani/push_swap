@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   pushswap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 15:41:17 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/05 05:35:26 by mourdani         ###   ########.fr       */
+/*   Created: 2021/10/28 07:55:42 by mourdani          #+#    #+#             */
+/*   Updated: 2021/11/05 05:55:44 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-void	push_a(t_stack *a, t_stack *b)
+void	push_swap_hundered(t_stack a, t_stack b)
 {
-	b->max_i += 1;
-	b->stack[b->max_i] = a->stack[a->max_i];
-	a->stack[a->max_i] = 0;
-	a->max_i -= 1;
-	printf("pb\n");
-}
+	int		max_i;
+	t_chunk	chunk;
+	int		*sorted;
 
-void	push_b(t_stack *a, t_stack *b)
-{
-	b->max_i += 1;
-	b->stack[b->max_i] = a->stack[a->max_i];
-	a->stack[a->max_i] = 0;
-	a->max_i -= 1;
-	printf("pa\n");
+	sorted = init_sorted(a);
+	
+	chunk = init_chunk(chunk, a, sorted);
+	max_i = a.max_i;
+	send_smallest_biggest(a, b);
+	b.max_i += 2;
+	a.max_i -= 2;
+	sort(a, b, chunk, max_i, sorted);
+	b.max_i += a.max_i + 1;
+	a.max_i = -1;
+	send_b_to_a(a, b, sorted);
+//	printf("a.max = %d\nb,max = %d\n", a.max_i, b.max_i);
+//	print_stacks(a, b);
 }

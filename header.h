@@ -6,7 +6,7 @@
 /*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2021/11/03 04:14:46 by mourdani         ###   ########.fr       */
+/*   Updated: 2021/11/05 05:35:40 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ typedef struct t_chunk{
 	int	number;
 	int	max_i;
 } t_chunk;
+
+
+t_chunk	init_chunk(t_chunk chunk, t_stack a, int *sorted);
+void	send_smallest_biggest(t_stack a, t_stack b);
+void	send_b_to_a(t_stack a, t_stack b, int *sorted);
+void	send_smallest_biggest(t_stack a, t_stack b);
+void	find_pos_closest_in_b(t_stack a, t_stack b, t_chunk chunk, int j);
+void	sort(t_stack a, t_stack b, t_chunk chunk, int max_i, int *sorted);
 
 void	rotate(t_stack *s);
 void	rotate_b(t_stack *s);
@@ -50,6 +58,9 @@ void	push_swap_three(t_stack a, t_stack b);
 void	push_swap_five(t_stack a, t_stack b);
 void	push_swap_hundered(t_stack a, t_stack b);
 void	push_swap_fhundered(t_stack a, t_stack b);
+void	push_swap(t_stack a, t_stack b);
+void	find_pos_closest_in_b(t_stack a,t_stack b, t_chunk chunk, int j);
+void	send_b_to_a(t_stack a, t_stack b, int *sorted);
 
 int	scan_from_top(t_stack a, t_chunk chunk, int chunk_number);
 int	scan_from_bottom(t_stack a, t_chunk chunk, int chunk_number);

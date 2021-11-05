@@ -64,4 +64,5 @@ int	check_elig(t_stack b, int i)
 		return (1);
 	else
 		return (0);
+	free(sorted);
 }

@@ -16,7 +16,6 @@ void	print_stacks(t_stack a, t_stack b)
 		printf("b[%d] = %d\n", i, b.stack[i]);
 		i--;
 	}
-	printf("\n");
 }
 
 void	print_stack(int *stack, int max_i)
