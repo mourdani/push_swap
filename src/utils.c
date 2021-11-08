@@ -6,24 +6,32 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 06:37:46 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/05 03:14:33 by mourdani         ###   ########.fr       */
+/*   Updated: 2021/11/08 14:33:35 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "../header.h"
 
 void	init_a(t_stack a, char **argv)
 {
 	int i;
 	int j;
+	int *temp;
 
+	
 	i = 0;
 	j = a.max_i + 1;
 	while (j > 0)
 	 	a.stack[i++] = ft_atoi(argv[j--]);
  	a.max_i = --i;
+	temp = (int *)malloc(sizeof(int) * (a.max_i + 1));
+	memcpy(temp, a.stack, (a.max_i + 1) * sizeof(int));
+	memcpy(a.sorted, quicksort(temp, 0, a.max_i), (a.max_i) * sizeof(int));
+//	print_stack(temp, a.max_i);
+//	print_stack(a.stack, a.max_i);
 }
-
+/*
 int	*init_sorted(t_stack a)
 {
 	t_stack temp;
@@ -35,15 +43,13 @@ int	*init_sorted(t_stack a)
 	if (!(temp.stack = (int*)malloc(sizeof(int) * (a.max_i + 1))))
 		return (0);
 	temp.max_i = a.max_i;
-	i = 0;
-	while (i <= a.max_i)
-	{
+	i = -1;
+	while (i++ <= a.max_i)
 		temp.stack[i] = a.stack[i];
-		i++;
-	}
 	sorted = quicksort(temp.stack, 0, temp.max_i);
+	free(temp.stack);
 	return (sorted);
-}
+}*/
 
 int	ft_atoi(const char *str)
 {
@@ -102,12 +108,11 @@ int	check_chunk(int *chunk, int chunk_max, int x)
 {
 	int i;
 
-	i = 0;
-	while(i <= chunk_max)
+	i = -1;
+	while(i++ <= chunk_max)
 	{
 		if (x == chunk[i])
 			return (1);
-		i++;
 	}
 	return (0);
 }

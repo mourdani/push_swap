@@ -22,12 +22,9 @@ void	print_stack(int *stack, int max_i)
 {
 	int i;
 
-	i = max_i;
-	while (i >= 0)
-	{
+	i = max_i + 1;
+	while (i-- > 0)
 		printf("stack[%d] = %d\n", i, stack[i]);
-		i--;
-	}
 }
 
 int 	test(t_stack a, t_stack b)

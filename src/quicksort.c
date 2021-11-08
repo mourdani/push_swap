@@ -33,18 +33,14 @@ int 	partition(int *stack, int low, int high)
 
 int	*quicksort(int *stack, int low, int high)
 {
-	int *sorted;
-
 	if (low < high)
 	{
 	int pi;
 
 		pi = partition(stack, low, high);
-
 		quicksort(stack, low, pi - 1);
 		quicksort(stack, pi + 1, high);
 	}
-	sorted = stack;
-	return (sorted);
+	return (stack);
 }
 

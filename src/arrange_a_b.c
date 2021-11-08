@@ -50,19 +50,10 @@ void	arrange_stacks(t_stack a, t_stack b, int n_a, int n_b)
 		rotate_b_ntimes(b, n_b);
 	}
 }
-int	check_elig(t_stack b, int i)
+int	check_elig(t_stack b, t_stack a, int i)
 {
-	int *sorted;
-
-	
-	if (!(sorted = init_sorted(b)))
-	{
-		printf("sorted empty");
-		return (1);
-	}
-	if (i == sorted[0] || i == sorted[b.max_i])
+	if (i == a.sorted[0] || i == a.sorted[b.max_i])
 		return (1);
 	else
 		return (0);
-	free(sorted);
 }
