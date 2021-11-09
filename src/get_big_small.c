@@ -17,7 +17,7 @@ void	get_biggest(t_stack a, t_stack b)
 	int i;
 	
 	i = 0;
-	while (a.stack[i] != a.sorted[a.max_i])
+	while (a.stack[i] != a.sorted[a.max_i + 1])
 		i++;
 	rotate_a_ntimes(a, find_nrotates(i, a.max_i));
 }

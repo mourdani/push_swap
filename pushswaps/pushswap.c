@@ -6,7 +6,7 @@
 /*   By: mourdani <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 07:55:42 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/08 13:41:19 by mourdani         ###   ########.fr       */
+/*   Updated: 2021/11/09 06:40:15 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,40 +62,31 @@ void	sort(t_stack a, t_stack b, t_chunk chunk, int max_i)
 	{
 		i = -1;
 		while (i++ <= chunk.max_i && b.max_i < max_i)
-		{		find_pos_closest_in_b(a, b, chunk, j);
-		push_a(&a, &b);
-	}
+		{
+			find_pos_closest_in_b(a, b, chunk, j);
+			push_a(&a, &b);
+		}
 	}
 }
 
-t_chunk	init_chunk(t_chunk chunk, t_stack a)
+void	init_chunk(t_chunk *chunk, t_stack a)
 {
-	chunk.number = 5;
-	chunk.chunks = init_chunks(a.sorted, a.max_i, chunk.number);
-	chunk.max_i = a.max_i / chunk.number;
-	return (chunk);
+	chunk->number = 5;
+	chunk->max_i = a.max_i / chunk->number;
 }
 
-void	push_swap(t_stack a, t_stack b)
+void	push_swap(t_stack a, t_stack b, t_chunk chunk)
 {
 	int		max_i;
-	t_chunk	chunk;
 	int i;
 
-	chunk = init_chunk(chunk, a);
 	max_i = a.max_i;
-//	send_smallest_biggest(a, b);
-/*	b.max_i += 2;
+	send_smallest_biggest(a, b);
+	b.max_i += 2;
 	a.max_i -= 2;
 	sort(a, b, chunk, max_i);
 	b.max_i += a.max_i + 1;
 	a.max_i = -1;
-	send_b_to_a(a, b);*/
-//	printf("a.max = %d\nb,max = %d\n", a.max_i, b.max_i);
+	send_b_to_a(a, b);
 //	print_stacks(a, b);
-	i = -1;
-	while(i++ < chunk.number)
-		free(chunk.chunks[i]);
-	free(a.stack);
-	free(b.stack);
 }

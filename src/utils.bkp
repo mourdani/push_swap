@@ -6,13 +6,11 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 06:37:46 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/09 06:56:47 by mourdani         ###   ########.fr       */
+/*   Updated: 2021/11/08 16:41:04 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "../header.h"
 
 void	init_a(t_stack a, char **argv)
@@ -27,42 +25,84 @@ void	init_a(t_stack a, char **argv)
 	while (j > 0)
 	 	a.stack[i++] = ft_atoi(argv[j--]);
  	a.max_i = --i;
-	if(!(temp = (int *)malloc(sizeof(int) * (a.max_i + 1))));
+	temp = (int *)malloc(sizeof(int) * (a.max_i + 1));
 	memcpy(temp, a.stack, (a.max_i + 1) * sizeof(int));
 	memcpy(a.sorted, quicksort(temp, 0, a.max_i), (a.max_i + 1) * sizeof(int));
+	print_stack(temp, a.max_i);
+//	print_stack(a.stack, a.max_i);
+}
+/*
+int	*init_sorted(t_stack a)
+{
+	t_stack temp;
+	int *sorted;
+	int i;
+	
+	if (!a.stack)
+		return (0);	
+	if (!(temp.stack = (int*)malloc(sizeof(int) * (a.max_i + 1))))
+		return (0);
+	temp.max_i = a.max_i;
+	i = -1;
+	while (i++ <= a.max_i)
+		temp.stack[i] = a.stack[i];
+	sorted = quicksort(temp.stack, 0, temp.max_i);
+	free(temp.stack);
+	return (sorted);
+}*/
 
-	free(temp);
+int	ft_atoi(const char *str)
+{
+	int		i;
+	int		num;
+	int		sign;
+
+	i = 0;
+	num = 0;
+	sign = 1;
+	while (*(str + i) == '\n' ||
+		*(str + i) == '\t' ||
+		*(str + i) == '\r' ||
+		*(str + i) == '\v' ||
+		*(str + i) == '\f' ||
+		*(str + i) == ' ')
+		i++;
+	if (*(str + i) == '-')
+		sign = -1;
+	if (*(str + i) == '-' || *(str + i) == '+')
+		i++;
+	while (*(str + i) && *(str + i) >= '0' && *(str + i) <= '9')
+		num = num * 10 + (*(str + i++) - '0');
+	return (num * sign);
 }
 
-void	**init_chunks(t_stack a, t_chunk chunk)
+int	**init_chunks(int *sorted, int max_i, int n_chunks)
 {
 	int s;
 	int i;
 	int j;
+	int **chunk;
 
 	j = 0;
 	s = 0;
-//	if (!(temp = (int **)malloc(sizeof(int*) * (n_chunks))))
-//		return (0);
-//	while (j < n_chunks)
-//	{
-//		if (!(	temp[j] = (int *)malloc(sizeof(int) * (a.max_i / n_chunks))))
-//			return (0);
-//		memcpy(temp[j], a.sorted, sizeof(int) * ((a.max_i / n_chunks) + 1));
-//		j++;
-//	}
-	while (j < chunk.number)
+	if (!(chunk = (int **)malloc(sizeof(int*) * (n_chunks))))
+		return (0);
+	while (j < n_chunks)
 	{
-		i = 0;
-		while (i <= (chunk.max_i))
-		{
-			chunk.chunks[j][i] = a.sorted[s];
-		i++;
-		s++;
-		}
+		if (!(chunk[j++] = (int *)malloc(sizeof(int) * (max_i / n_chunks))))
+				return (0);
+	}
+	j = 0;
+	while (j < n_chunks)
+	{
+	i = 0;
+		while (i <= (max_i / n_chunks))
+			chunk[j][i++] = sorted[s++];
 		j++;
 	}
+	return (chunk);
 }
+
 
 int	check_chunk(int *chunk, int chunk_max, int x)
 {
@@ -137,29 +177,4 @@ int	find_closest(t_stack a, int hold_first, int hold_second)
 	if ((n_first * n_first) > (n_second * n_second))
 		n_closest = n_second;
 	return (n_closest);
-}
-
-int	ft_atoi(const char *str)
-{
-	int		i;
-	int		num;
-	int		sign;
-
-	i = 0;
-	num = 0;
-	sign = 1;
-	while (*(str + i) == '\n' ||
-		*(str + i) == '\t' ||
-		*(str + i) == '\r' ||
-		*(str + i) == '\v' ||
-		*(str + i) == '\f' ||
-		*(str + i) == ' ')
-		i++;
-	if (*(str + i) == '-')
-		sign = -1;
-	if (*(str + i) == '-' || *(str + i) == '+')
-		i++;
-	while (*(str + i) && *(str + i) >= '0' && *(str + i) <= '9')
-		num = num * 10 + (*(str + i++) - '0');
-	return (num * sign);
 }

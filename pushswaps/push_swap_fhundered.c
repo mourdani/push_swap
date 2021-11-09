@@ -12,12 +12,10 @@
 
 #include "../header.h"
 
-void	push_swap_fhundered(t_stack a, t_stack b)
+void	push_swap_fhundered(t_stack a, t_stack b, t_chunk chunk)
 {
 	int		max_i;
-	t_chunk	chunk;
 
-	chunk = init_chunk(chunk, a);
 	max_i = a.max_i;
 	send_smallest_biggest(a, b);
 	b.max_i += 2;
