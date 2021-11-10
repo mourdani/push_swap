@@ -43,6 +43,9 @@ void	init_chunks(t_stack a, t_chunk *chunk)
 
 void	init_chunk(t_chunk *chunk, t_stack a)
 {
-	chunk->number = 11;
+	if (a.max_i >= 499)
+		chunk->number = 11;
+	else
+			chunk->number = 5;
 	chunk->max_i = a.max_i / chunk->number;
 }
