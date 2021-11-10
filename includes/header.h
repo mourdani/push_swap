@@ -62,7 +62,7 @@ void	sort_two(t_stack *a);
 /* -------------------------------------------------------------------------- */
 /*                           FILE = header/utils.c                            */
 /* -------------------------------------------------------------------------- */
-void	init_a(t_stack a, char **argv);
+void	init_a_b(t_stack a, t_stack b, char **argv);
 void	init_chunks(t_stack a, t_chunk *chunk);
 int		check_chunk(int *chunk, int chunk_max, int x);
 int		rotate_a_ntimes(t_stack *stack, int n);

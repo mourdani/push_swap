@@ -1,6 +1,6 @@
 #include "../includes/header.h"
 
-void	init_a(t_stack a, char **argv)
+void	init_a_b(t_stack a, t_stack b, char **argv)
 {
 	int	i;
 	int	j;
@@ -10,6 +10,12 @@ void	init_a(t_stack a, char **argv)
 	j = a.max_i + 1;
 	while (j > 0)
 		a.stack[i++] = ft_atoi(argv[j--]);
+	i = 0;
+	while (i <= a.max_i)
+		{
+			b.stack[i] = 0;
+			i++;
+		}
 	a.max_i = --i;
 	temp = (int *)malloc(sizeof(int) * (a.max_i + 1));
 	if (!temp)

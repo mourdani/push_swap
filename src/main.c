@@ -92,7 +92,7 @@ int	main(int argc, char **argv)
 	t_chunk	chunk;
 
 	malloc_a_b(&a, &b, argc);
-	init_a(a, argv);
+	init_a_b(a, b, argv);
 	if (check_error(argv, argc, a))
 				return (0);
 	if (argc == 1 || argc == 2 || a_is_sorted(a) == 1)
