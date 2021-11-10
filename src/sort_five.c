@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   sort_five.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/28 07:55:42 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/09 14:04:35 by ymehdi           ###   ########.fr       */
+/*   Created: 2021/11/10 11:29:57 by mourdani          #+#    #+#             */
+/*   Updated: 2021/11/10 11:29:58 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	sort_three(t_stack *a)
 		rrotate_a(a);
 }
 
-void sort_four(t_stack *a, t_stack *b)
+void	sort_four(t_stack *a, t_stack *b)
 {
 	get_smallest(a);
 	push_a(a, b);
@@ -59,41 +59,8 @@ void	sort_five(t_stack *a, t_stack *b)
 	rotate_a(a);
 }
 
-void sort_two(t_stack *a)
+void	sort_two(t_stack *a)
 {
-	int i;
-
-	i = 0;
-	if (a->stack[i] < a->stack[i + 1])
+	if (a->stack[0] < a->stack[1])
 		swap(a);
-}
-
-void	sort_fhundered(t_stack *a, t_stack *b, t_chunk chunk)
-{
-	int		max_i;
-
-	max_i = a->max_i;
-	send_smallest_biggest(a, b);
-	sort_stacks(a, b, chunk, max_i);
-	send_b_to_a(a, b);
-}
-
-void	sort_hundered(t_stack *a, t_stack *b, t_chunk chunk)
-{
-	int		max_i;
-
-	max_i = a->max_i;
-	send_smallest_biggest(a, b);
-	sort_stacks(a, b, chunk, max_i);
-	send_b_to_a(a, b);
-}
-
-void	sort_others(t_stack *a, t_stack *b, t_chunk chunk)
-{
-	int		max_i;
-
-	max_i = a->max_i;
-	send_smallest_biggest(a, b);
-	sort_stacks(a, b, chunk, max_i);
-	send_b_to_a(a, b);
 }

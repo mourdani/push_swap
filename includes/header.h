@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2021/11/09 14:29:06 by ymehdi           ###   ########.fr       */
+/*   Created: 2021/11/10 11:15:06 by mourdani          #+#    #+#             */
+/*   Updated: 2021/11/10 11:15:23 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
 
-# include <string.h>
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -57,7 +55,7 @@ void	sort_fhundered(t_stack *a, t_stack *b, t_chunk chunk);
 void	sort_hundered(t_stack *a, t_stack *b, t_chunk chunk);
 void	sort_others(t_stack *a, t_stack *b, t_chunk chunk);
 void	sort_five(t_stack *a, t_stack *b);
-void sort_four(t_stack *a, t_stack *b);
+void	sort_four(t_stack *a, t_stack *b);
 void	sort_three(t_stack *a);
 void	sort_two(t_stack *a);
 /* -------------------------------------------------------------------------- */
@@ -89,6 +87,7 @@ void	push_b(t_stack *a, t_stack *b);
 /* -------------------------------------------------------------------------- */
 int		a_is_sorted(t_stack a);
 void	malloc_a_b(t_stack *a, t_stack *b, int argc);
+void	malloc_chunks(t_stack a, t_chunk *chunk);
 int		main(int argc, char **argv);
 /* -------------------------------------------------------------------------- */
 /*                        FILE = header/arrange_a_b.c                         */

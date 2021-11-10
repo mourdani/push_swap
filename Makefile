@@ -9,7 +9,8 @@ SRCS =			src/main.c\
 					src/get_big_small.c\
 					src/get_h_first_sec.c\
 					src/init.c\
-					src/pushswap.c\
+					src/sort_others.c\
+					src/sort_five.c\
 					src/quicksort.c\
 					src/errors.c\
 					src/util3.c\

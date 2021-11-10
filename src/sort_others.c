@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_big_small.c                                    :+:      :+:    :+:   */
+/*   pushswap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 11:17:37 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/10 11:17:40 by mourdani         ###   ########.fr       */
+/*   Created: 2021/10/28 07:55:42 by mourdani          #+#    #+#             */
+/*   Updated: 2021/11/10 11:21:25 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/header.h"
 
-void	get_smallest(t_stack *a)
+void	sort_others(t_stack *a, t_stack *b, t_chunk chunk)
 {
-	int	i;
+	int		max_i;
 
-	i = 0;
-	while (a->stack[i] != a->sorted[0])
-		i++;
-	rotate_a_ntimes(a, find_nrotates(i, a->max_i));
-}
-
-void	get_biggest(t_stack *a)
-{
-	int	i;
-
-	i = 0;
-	while (a->stack[i] != a->sorted[a->max_i + 1])
-		i++;
-	rotate_a_ntimes(a, find_nrotates(i, a->max_i));
+	max_i = a->max_i;
+	send_smallest_biggest(a, b);
+	sort_stacks(a, b, chunk, max_i);
+	send_b_to_a(a, b);
 }
