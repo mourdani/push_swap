@@ -55,3 +55,27 @@ void	rrr(t_stack *a, t_stack *b)
 	rrotate(b);
 	ft_putstr("rrr\n");
 }
+
+int	find_nrotates(int n, int max_i)
+{
+	int	i;
+
+	i = 0;
+	if (n == max_i)
+		return (0);
+	if (n == 0)
+		return (-1);
+	if (n >= (max_i / 2))
+	{
+		while (n++ < max_i)
+			i++;
+		return (i);
+	}
+	else if (n <= (max_i / 2))
+	{
+		while (n-- >= 0)
+			i--;
+		return (i);
+	}
+	return (i);
+}

@@ -81,3 +81,20 @@ int	check_error(char **argv, int argc, t_stack a)
 	}
 	return (0);
 }
+
+int	a_is_sorted(t_stack a)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = a.max_i;
+	while (i <= a.max_i)
+	{
+		if (a.stack[i] != a.sorted[j])
+			return (0);
+		i++;
+		j--;
+	}
+	return (1);
+}

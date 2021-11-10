@@ -52,3 +52,27 @@ int	rotate_a_ntimes(t_stack *stack, int n)
 		rrotate_a(stack);
 	return (n);
 }
+
+void	rotatea_b(t_stack *a, t_stack *b, int n_a, int n_b)
+{
+	while (n_a > 0 && n_b > 0)
+	{
+		rr(a, b);
+		n_a--;
+		n_b--;
+	}
+	rotate_a_ntimes(a, n_a);
+	rotate_b_ntimes(b, n_b);
+}
+
+void	rrotatea_b(t_stack *a, t_stack *b, int n_a, int n_b)
+{
+	while (n_a < -1 && n_b < -1)
+	{
+		rrr(a, b);
+		n_a++;
+		n_b++;
+	}
+	rotate_a_ntimes(a, n_a);
+	rotate_b_ntimes(b, n_b);
+}

@@ -31,3 +31,11 @@ void	get_biggest(t_stack *a)
 		i++;
 	rotate_a_ntimes(a, find_nrotates(i, a->max_i));
 }
+
+void	send_smallest_biggest(t_stack *a, t_stack *b)
+{
+	get_smallest(a);
+	push_a(a, b);
+	get_biggest(a);
+	push_a(a, b);
+}

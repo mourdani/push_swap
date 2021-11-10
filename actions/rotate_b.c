@@ -6,7 +6,7 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:13:32 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/10 11:13:38 by mourdani         ###   ########.fr       */
+/*   Updated: 2021/11/10 16:53:04 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ void	rotate_b(t_stack *s)
 
 void	rrotate_b(t_stack *s)
 {
-	int	i;
-	int	temp;
+	int		i;
+	int		temp;
+	char	*ret;
 
+	ret = "rrb\n";
 	i = 0;
 	temp = s->stack[0];
 	while (i < s->max_i)
@@ -41,7 +43,7 @@ void	rrotate_b(t_stack *s)
 		i++;
 	}
 	s->stack[s->max_i] = temp;
-	ft_putstr("rrb\n");
+	ft_putstr(ret);
 }
 
 int	rotate_b_ntimes(t_stack *stack, int n)
