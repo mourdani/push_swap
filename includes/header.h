@@ -6,7 +6,7 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:15:06 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/10 11:15:23 by mourdani         ###   ########.fr       */
+/*   Updated: 2021/11/10 17:05:56 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,11 +119,12 @@ void	get_biggest(t_stack *a);
 void	quickswap(int *i, int *j);
 int		partition(int *stack, int low, int high);
 int		*quicksort(int *stack, int low, int high);
-void	ft_putstr(char *s);
+void	ft_putstr(char const *s);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_atoi_err(const char *str);
 int		check_error(char **argv, int argc, t_stack a);
 void	sort(t_stack *a, t_stack *b, t_chunk chunk);
+void	free_all(t_stack *a, t_stack *b, t_chunk *chunk);
 
 #endif
