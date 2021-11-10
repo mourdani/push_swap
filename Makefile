@@ -1,21 +1,22 @@
 NAME = push_swap
-SRCS =			src/main.c\
+SRCS =			sources/main.c\
 					actions/push.c\
 					actions/rotate_a.c\
 					actions/rotate.c\
 					actions/rotate_b.c\
 					actions/swap.c\
-					src/arrange_a_b.c     \
-					src/get_big_small.c\
-					src/get_h_first_sec.c\
-					src/init.c\
-					src/sort_others.c\
-					src/sort_five.c\
-					src/quicksort.c\
-					src/errors.c\
-					src/util3.c\
-					src/utils2.c\
-					src/utils.c
+					sources/chunk.c\
+					sources/arrange_a_b.c\
+					sources/get_big_small.c\
+					sources/get_h_first_sec.c\
+					sources/init.c\
+					sources/sort_others.c\
+					sources/sort_five.c\
+					sources/quicksort.c\
+					sources/sort.c\
+					sources/errors.c\
+					sources/libft_utils.c\
+					sources/utils.c
 
 INCLUDES = includes
 
