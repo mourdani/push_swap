@@ -10,18 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "../includes/header.h"
 
 void	swap(t_stack *a)
 {
-	int temp;
-	int max_i;
+	int	temp;
+	int	max_i;
 
 	max_i = a->max_i;
 	if (max_i == 0)
-		return;
+		return ;
 	temp = a->stack[max_i];
 	a->stack[max_i] = a->stack[max_i - 1];
 	a->stack[max_i - 1] = temp;
-	printf("sa\n");
+	ft_putstr("sa\n");
+}
+
+void	swap_b(t_stack *a)
+{
+	int	temp;
+	int	max_i;
+
+	max_i = a->max_i;
+	if (max_i == 0)
+		return ;
+	temp = a->stack[max_i];
+	a->stack[max_i] = a->stack[max_i - 1];
+	a->stack[max_i - 1] = temp;
+	ft_putstr("sb\n");
 }
