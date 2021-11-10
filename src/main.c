@@ -79,6 +79,8 @@ void sort(t_stack *a, t_stack *b, t_chunk chunk)
 		sort_two(a);
 	else if (a->max_i == 2)
 		sort_three(a);
+	else if (a->max_i == 3)
+		sort_four(a, b);
 	else if (a->max_i == 4)
 		sort_five(a, b);
 	else

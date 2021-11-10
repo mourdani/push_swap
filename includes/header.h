@@ -57,6 +57,7 @@ void	sort_fhundered(t_stack *a, t_stack *b, t_chunk chunk);
 void	sort_hundered(t_stack *a, t_stack *b, t_chunk chunk);
 void	sort_others(t_stack *a, t_stack *b, t_chunk chunk);
 void	sort_five(t_stack *a, t_stack *b);
+void sort_four(t_stack *a, t_stack *b);
 void	sort_three(t_stack *a);
 void	sort_two(t_stack *a);
 /* -------------------------------------------------------------------------- */

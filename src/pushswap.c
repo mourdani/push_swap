@@ -37,6 +37,14 @@ void	sort_three(t_stack *a)
 		rrotate_a(a);
 }
 
+void sort_four(t_stack *a, t_stack *b)
+{
+	get_smallest(a);
+	push_a(a, b);
+	sort_three(a);
+	push_b(b, a);
+}
+
 void	sort_five(t_stack *a, t_stack *b)
 {
 	get_smallest(a);
