@@ -6,7 +6,7 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 13:59:29 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/10 13:59:39 by mourdani         ###   ########.fr       */
+/*   Updated: 2021/11/13 10:28:20 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,20 @@ void	init_chunks(t_stack a, t_chunk *chunk)
 void	init_chunk(t_chunk *chunk, t_stack a)
 {
 	if (a.max_i >= 499)
+	{
 		chunk->number = 11;
-	else
+		chunk->max_i = a.max_i / chunk->number;
+	}
+	else if (a.max_i >= 5)
+	{
 		chunk->number = 5;
-	chunk->max_i = a.max_i / chunk->number;
+		chunk->max_i = a.max_i / chunk->number;
+	}
+	else if (a.max_i < 5 )
+	{
+		chunk->number = 0;
+		chunk->max_i = a.max_i;
+	}
 }
 
 void	malloc_chunks(t_stack a, t_chunk *chunk)

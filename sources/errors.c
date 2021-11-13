@@ -6,7 +6,7 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:17:51 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/10 11:17:52 by mourdani         ###   ########.fr       */
+/*   Updated: 2021/11/13 11:17:01 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,17 @@ int	check_duplicate(t_stack a)
 	int	j;
 
 	j = 0;
+	i = 0;
 	while (j <= a.max_i)
 	{
 		i = 0;
 		while (i <= a.max_i)
 		{
 			if (a.stack[i] == a.stack[j] && i != j)
+			{
+				ft_putstr("Error\n");
 				return (1);
+			}
 			i++;
 		}
 		j++;
@@ -60,7 +64,7 @@ int	check_duplicate(t_stack a)
 	return (0);
 }
 
-int	check_error(char **argv, int argc, t_stack a)
+int	check_alpha(int argc, char **argv)
 {
 	int	i;
 
@@ -74,15 +78,10 @@ int	check_error(char **argv, int argc, t_stack a)
 		}
 		i++;
 	}
-	if (check_duplicate(a) == 1)
-	{
-		ft_putstr("Error\n");
-		return (1);
-	}
 	return (0);
 }
 
-int	a_is_sorted(t_stack a)
+int	check_sorted(t_stack a)
 {
 	int	i;
 	int	j;
@@ -92,7 +91,9 @@ int	a_is_sorted(t_stack a)
 	while (i <= a.max_i)
 	{
 		if (a.stack[i] != a.sorted[j])
+		{
 			return (0);
+		}
 		i++;
 		j--;
 	}
