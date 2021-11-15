@@ -69,11 +69,11 @@ void	swap_b(t_stack *a);
 /*                             FILE = src/init.c                              */
 /* -------------------------------------------------------------------------- */
 void	init_a_b(t_stack a, t_stack b, char **argv);
-void	malloc_a_b(t_stack *a, t_stack *b, int argc);
-
+int		malloc_a_b(t_stack *a, t_stack *b, int argc);
 /* -------------------------------------------------------------------------- */
 /*                             FILE = src/utils.c                             */
 /* -------------------------------------------------------------------------- */
+void	free_a_b(t_stack *a, t_stack *b);
 void	free_all(t_stack *a, t_stack *b, t_chunk *chunk);
 void	send_b_to_a(t_stack *a, t_stack *b);
 int		find_closest(t_stack *a, int hold_first, int hold_second);
@@ -154,7 +154,7 @@ void	rrotatea_b(t_stack *a, t_stack *b, int n_a, int n_b);
 /* -------------------------------------------------------------------------- */
 void	init_chunks(t_stack a, t_chunk *chunk);
 void	init_chunk(t_chunk *chunk, t_stack a);
-void	malloc_chunks(t_stack a, t_chunk *chunk);
+int		malloc_chunks(t_stack *a, t_stack *b, t_chunk *chunk);
 int		check_chunk(int *chunk, int chunk_max, int x);
 
 /* -------------------------------------------------------------------------- */
@@ -163,6 +163,7 @@ int		check_chunk(int *chunk, int chunk_max, int x);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	ft_putstr(char const *s);
+void	ft_puterr(char const *s);
 int		ft_atoi(const char *str);
 
 /* -------------------------------------------------------------------------- */
