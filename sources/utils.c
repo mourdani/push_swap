@@ -12,6 +12,13 @@
 
 #include "../includes/header.h"
 
+void	free_a_b(t_stack *a, t_stack *b)
+{
+	free(a->stack);
+	free(a->sorted);
+	free(b->stack);
+}
+
 void	free_all(t_stack *a, t_stack *b, t_chunk *chunk)
 {
 	int		j;
