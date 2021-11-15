@@ -18,12 +18,13 @@ int	ft_atoi_err(const char *str)
 	long	num;
 	int		sign;
 
+	if (!*str)
+		return (1);
 	i = 0;
 	num = 0;
 	sign = 1;
-	while (*(str + i) == '\n' || *(str + i) == '\t'
-		|| *(str + i) == '\r' || *(str + i) == '\v'
-		|| *(str + i) == '\f' || *(str + i) == ' ')
+	while (*(str + i) == '\n' || *(str + i) == '\t' || *(str + i) == '\r'
+		|| *(str + i) == '\v' || *(str + i) == '\f' || *(str + i) == ' ')
 		i++;
 	if (*(str + i) == '-')
 		sign = -1;
@@ -54,7 +55,7 @@ int	check_duplicate(t_stack a)
 		{
 			if (a.stack[i] == a.stack[j] && i != j)
 			{
-				ft_putstr("Error\n");
+				ft_puterr("Error\n");
 				return (1);
 			}
 			i++;
@@ -73,7 +74,7 @@ int	check_alpha(int argc, char **argv)
 	{
 		if (ft_atoi_err(argv[i]) == 1)
 		{
-			ft_putstr("Error\n");
+			ft_puterr("Error\n");
 			return (1);
 		}
 		i++;
