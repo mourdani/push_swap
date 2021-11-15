@@ -34,9 +34,17 @@ int	main(int argc, char **argv)
 
 	if (check_alpha(argc, argv) || argc == 1 || argc == 2)
 		return (0);
-	malloc_a_b(&a, &b, argc);
+	if (!(malloc_a_b(&a, &b, argc)))
+	{
+		ft_puterr("Memory alloc failed for 'a' or 'b'\n");
+		return (0);
+	}
 	init_a_b(a, b, argv);
-	malloc_chunks(a, &chunk);
+	if (!(malloc_chunks(&a, &b, &chunk)))
+	{
+		ft_puterr("Memory alloc failed for 'chunks'\n");
+		return (0);
+	}
 	if (check_duplicate(a) == 1 || check_sorted(a) == 1)
 	{
 		free_all(&a, &b, &chunk);
