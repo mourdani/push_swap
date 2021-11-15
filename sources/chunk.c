@@ -6,7 +6,7 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 13:59:29 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/13 10:28:20 by mourdani         ###   ########.fr       */
+/*   Updated: 2021/11/15 07:19:05 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,30 @@ void	init_chunk(t_chunk *chunk, t_stack a)
 	}
 }
 
-void	malloc_chunks(t_stack a, t_chunk *chunk)
+int	malloc_chunks(t_stack *a, t_stack *b, t_chunk *chunk)
 {
 	int	j;
 
 	j = 0;
-	init_chunk(chunk, a);
+	init_chunk(chunk, *a);
 	chunk->chunks = (int **)malloc(sizeof(int *) * chunk->number);
 	if (!(chunk->chunks))
-		return ;
+	{
+		free_a_b(a, b);
+		return (0);
+	}
 	while (j < chunk->number)
 	{
 		chunk->chunks[j] = (int *)malloc(sizeof(int) * (chunk->max_i + 1));
 		if (!(chunk->chunks[j]))
-			return ;
+		{
+			free_all(a, b, chunk);
+			return (0);
+		}
 		j++;
 	}
-	init_chunks(a, chunk);
+	init_chunks(*a, chunk);
+	return (1);
 }
 
 int	check_chunk(int *chunk, int chunk_max, int x)
