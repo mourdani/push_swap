@@ -6,7 +6,7 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:18:45 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/10 11:18:46 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/01/25 18:04:04 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	scan_from_top(t_stack *a, t_chunk chunk, int chunk_number)
 	int	i;
 
 	i = a->max_i;
-	while (i >= 0 )
+	while (i >= 0)
 	{
 		if (check_chunk(chunk.chunks[chunk_number],
 				chunk.max_i, a->stack[i]) == 1)

@@ -6,7 +6,7 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:17:51 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/13 11:17:01 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/01/25 18:05:06 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	ft_atoi_err(const char *str)
 		i++;
 	while (*(str + i))
 	{
-		 if (!(*(str + i) >= '0' && *(str + i) <= '9'))
-			 return (1);
-		 num = num * 10 + (*(str + i++) - '0');
+		if (!(*(str + i) >= '0' && *(str + i) <= '9'))
+			return (1);
+		num = num * 10 + (*(str + i++) - '0');
 	}
 	if ((num * sign) > 2147483647 || (num * sign) < -2147483648)
 		return (1);

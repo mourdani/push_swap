@@ -6,7 +6,7 @@
 /*   By: mourdani <mourdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:16:30 by mourdani          #+#    #+#             */
-/*   Updated: 2021/11/10 16:52:22 by mourdani         ###   ########.fr       */
+/*   Updated: 2022/01/25 18:05:38 by mourdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,6 @@ int	ft_atoi(const char *str)
 	if (*(str + i) == '-' || *(str + i) == '+')
 		i++;
 	while (*(str + i) && *(str + i) >= '0' && *(str + i) <= '9')
-		 num = num * 10 + (*(str + i++) - '0');
+		num = num * 10 + (*(str + i++) - '0');
 	return (num * sign);
 }
